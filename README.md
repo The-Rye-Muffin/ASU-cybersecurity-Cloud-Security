@@ -66,7 +66,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![What the output of running sudo docker PS should look like](The-Rye-Muffin/ASU-cybersecurity-Cloud-Securityimages/Sudo_docker_ps.png)
+![What the output of running sudo docker PS should look like](https://github.com/The-Rye-Muffin/ASU-cybersecurity-Cloud-Security/blob/18fb1fdb50171d1a4743bed1349027bc03dbc1db/images/Sudo_docker_ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
