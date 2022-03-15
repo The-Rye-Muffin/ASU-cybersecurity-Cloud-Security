@@ -55,6 +55,8 @@ A summary of the access policies in place can be found in the table below.
 | Web1      | No                 | None                        |
 | Web2      | No                 | None                        |
 
+The Elk Stack was given a second IP address permission to allow the user to view kibana on a mobile device
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because this reduces
@@ -62,9 +64,10 @@ amount of time needed to get multiple machines up and running.
 
 The playbook implements the following tasks:
 - set's the vm's vm.max_map_count to a required minimum of 262144
-- download and install the Docker container service
-- download the image needed for the elk container
-- edit the configuration file
+- download and install docker.io
+- download and install python3-pip
+- install docker with pip
+- download the image needed for the ELK container and launch the container
 - enables the docker service on startup
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
