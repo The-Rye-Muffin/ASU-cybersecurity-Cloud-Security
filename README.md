@@ -44,15 +44,16 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 - 72.212.93.45
 
 Machines within the network can only be accessed by:
--137.117.38.1
+- 137.117.38.1 - The JumpBox
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name      | Publicly Available | Allowed IP Addresses        |
+|-----------|--------------------|-----------------------------|
+| Jump Box  | Yes                | 72.212.93.45                |
+| Elk Stack | Yes                | 72.212.93.45,174.240.23.193 |
+| Web1      | No                 | None                        |
+| Web2      | No                 | None                        |
 
 ### Elk Configuration
 
@@ -60,10 +61,11 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 amount of time needed to get multiple machines up and running.
 
 The playbook implements the following tasks:
+- set's the vm's vm.max_map_count to a required minimum of 262144
 - download and install the Docker container service
 - download the image needed for the elk container
 - edit the configuration file
-- ...
+- enables the docker service on startup
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -71,13 +73,16 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- 10.0.0.8 - Web1 machine
+- 10.0.0.9 - Web2 machine
 
 We have installed the following Beats on these machines:
 -filebeat and metricbeat on both web1 and web2
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
+- filebeat permits us to monitor system logs on both machines, allowing us to see when system files are modified, tracking changes made to the system.
+- metricbeat permits us to monitor the metrics of the system and it's services, allowing us to see changes that happen to services and how it affects our system.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -85,11 +90,4 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the configuration file to the remote containers.
 - Update the hosts file to include the IP
-- Run the playbook, and navigate to {ELK_VMs_public_IP:5601/app/kibana to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Run the playbook, and navigate to {ELK_VMs_public_IP:5601/app/kibana} to check that the installation worked as expected.
