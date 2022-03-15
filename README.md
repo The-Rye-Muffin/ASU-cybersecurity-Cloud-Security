@@ -60,8 +60,9 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 amount of time needed to get multiple machines up and running.
 
 The playbook implements the following tasks:
-- install the Docker container service
-- download the image needed to 
+- download and install the Docker container service
+- download the image needed for the elk container
+- edit the configuration file
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
