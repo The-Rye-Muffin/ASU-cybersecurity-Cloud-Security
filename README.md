@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/sudo_docker_ps.png)
+![TODO: Update the path with the name of your diagram](https://github.com/The-Rye-Muffin/ASU-cybersecurity-Cloud-Security/blob/2edd2f8f4a3b9388ab4f8f65914d46df23878565/images/Azure-network-diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the  file may be used to install only certain pieces of it, such as Filebeat.
 
